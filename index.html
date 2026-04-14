@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Легенды игр: GTA 5, CS2, DOTA 2 | Сравнение и факты</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0c12;
+            color: #edf2ff;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* градиентные акценты */
+        :root {
+            --gta: #f5a623;
+            --cs: #ff6b4a;
+            --dota: #6c5ce7;
+            --card-bg: rgba(18, 22, 35, 0.85);
+            --border-light: rgba(66, 78, 110, 0.5);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f111a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2f44;
+            border-radius: 8px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        /* хедер */
+        .header {
+            padding: 28px 0 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            margin-bottom: 20px;
+        }
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff, #9ca3ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+        .logo span {
+            background: none;
+            color: #7c8eff;
+        }
+        .subhead {
+            color: #8e98b5;
+            margin-top: 8px;
+            font-size: 0.95rem;
+        }
+
+        /* hero секция */
+        .hero {
+            text-align: center;
+            margin: 32px 0 48px;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #ffffff, #b9c2ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
+        }
+        .hero p {
+            max-width: 750px;
+            margin: 16px auto 0;
+            color: #a4aec9;
+            font-size: 1.1rem;
+        }
+
+        /* сетка карточек */
+        .games-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+            margin: 40px 0 60px;
+        }
+        .game-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(6px);
+            border-radius: 2rem;
+            border: 1px solid var(--border-light);
+            width: 380px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.5);
+        }
+        .game-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(124, 142, 255, 0.7);
+            box-shadow: 0 28px 40px -12px rgba(70, 100, 230, 0.25);
+        }
+        .card-header {
+            padding: 20px 24px 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .game-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+        .game-title {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+        }
+        .game-sub {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 6px;
+        }
+        .card-body {
+            padding: 20px 24px 24px;
+        }
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+        .info-label {
+            font-weight: 600;
+            color: #9aa4c7;
+        }
+        .info-value {
+            font-weight: 500;
+            text-align: right;
+        }
+        .highlight {
+            color: #ffd966;
+            font-weight: 700;
+        }
+        .profit {
+            color: #6fcf97;
+            font-weight: 700;
+        }
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #7c8eff, transparent);
+            margin: 16px 0;
+        }
+        .feature-list {
+            list-style: none;
+            margin-top: 14px;
+        }
+        .feature-list li {
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .feature-list li i {
+            width: 20px;
+            color: #7c8eff;
+        }
+
+        /* статистика блок */
+        .stats-section {
+            background: rgba(10, 12, 25, 0.6);
+            border-radius: 2rem;
+            border: 1px solid var(--border-light);
+            padding: 32px 28px;
+            margin: 20px 0 50px;
+        }
+        .stats-title {
+            font-size: 1.7rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+        .stats-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: space-between;
+        }
+        .stat-card {
+            flex: 1;
+            min-width: 180px;
+            background: rgba(0,0,0,0.35);
+            border-radius: 1.5rem;
+            padding: 18px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff, #bfc8ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .stat-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 8px;
+            color: #9ca3c0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 32px 0 40px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.8rem;
+            color: #6f7a9a;
+        }
+        @media (max-width: 780px) {
+            .game-card { width: 100%; max-width: 420px; }
+            .hero h1 { font-size: 2rem; }
+            .stats-grid { flex-direction: column; }
+        }
+        .badge {
+            background: rgba(124, 142, 255, 0.2);
+            border-radius: 40px;
+            padding: 4px 10px;
+            font-size: 0.7rem;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header class="header">
+        <div class="logo">Игровая <span>Троица</span></div>
+        <div class="subhead"><i class="fas fa-chart-line"></i> GTA V · CS2 · DOTA 2 — история, цифры, феномены</div>
+    </header>
+
+    <section class="hero">
+        <h1>Три игры, изменившие индустрию</h1>
+        <p>Больше 20 лет совокупной истории, миллиарды долларов прибыли и миллионы игроков по всему миру. Разбираем, за счет чего GTA 5, CS2 и DOTA 2 стали легендами.</p>
+    </section>
+
+    <!-- Карточки игр -->
+    <div class="games-grid">
+        <!-- GTA V -->
+        <div class="game-card">
+            <div class="card-header">
+                <div class="game-icon"><i class="fas fa-city" style="color: #f5a623;"></i></div>
+                <div class="game-title">Grand Theft Auto V</div>
+                <div class="game-sub">Rockstar North / Rockstar Games</div>
+            </div>
+            <div class="card-body">
+                <div class="info-row"><span class="info-label"><i class="far fa-calendar-alt"></i> Дата создания</span><span class="info-value">17 сентября 2013</span></div>
+                <div class="info-row"><span class="info-label"><i class="fas fa-code-branch"></i> Разработчик</span><span class="info-value">Rockstar North</span></div>
+                <div class="info-row"><span class="info-label"><i class="fas fa-dollar-sign"></i> Бюджет разработки</span><span class="info-value">~265 млн $ (с маркетингом)</span></div>
+                <div class="info-row"><span class="info-label"><i class="fas fa-globe"></i> Онлайн (среднесуточный)</span><span class="info-value highlight">~150 000+ (Steam) + соцсети</span></div>
+                <div class="info-row"><span class="info-label"><i class="fas fa-chart-line"></i> Прибыль (в Steam)</span><span class="info-value profit">~758 млн $ (только Steam)</span></div>
+                <div class="divider"></div>
+                <div class="info-row"><span class="info-label"><i class="fas fa-gamepad"></i> Суть игры</span><span class="info-value">Открытый мир, ограбления, сюжет трёх героев, GTA Online</span></div>
+                <div class="feature-list">
+                    <li><i class="fas fa-chart-simple"></i> За счёт популярности: киношный сюжет, свобода действий, постоянные обновления GTA Online, моды и RP-сервера [citation:3]</li>
+                    <li><i class="fas fa-trophy"></i> Автор: Дэн Хаузер, Сэм Хаузер, Лесли Бензис</li>
+                    <li><i class="fas fa-coins"></i> Общая прибыль создателю (Rockstar/Take-Two): более 8 млрд $ (все платформы)</li>
+                </div>
+            </div>
+        </div>
+
+        <!-- CS2 / CS:GO -->
+        <div class="game-card">
+            <div class="card-header">
+                <div class="game-icon"><i class="fas fa-crosshairs" style="color: #ff6b4a;"></i></div>
+                <div class="game-title">Counter-Strike 2</div>
+                <div class="game-sub">Valve / Hidden Path Entertainment</div>
+            </div>
+            <div class="card-body">
+                <div class="info-row"><span class="info-label"><i class="far fa-calendar-alt"></i> Дата создания</span><span class="info-value">CS:GO — 2012 / CS2 — 2023</span></div>
+                <div class="info-row"><span class="info-label"><i class="fas fa-code-branch"></i> Разработчик</span><span class="info-value">Valve Corporation</span></div>
+                <div class="info-row"><span class="info-label"><i class="fas fa-dollar-sign"></i> Бюджет разработки</span><span class="info-value">~20-30 млн $ (CS:GO, оценка)</span></div>
+                <div class="info-row"><span class="info-label"><i class="fas fa-globe"></i> Онлайн (пик в сутки)</span><span class="info-value highlight">~1.4 млн (все платформы)</span></div>
+                <div class="info-row"><span class="info-label"><i class="fas fa-chart-line"></i> Прибыль (вся серия)</span><span class="info-value profit">6.7 млрд $ (CS:GO в Steam) [citation:1][citation:2]</span></div>
+                <div class="divider"></div>
+                <div class="info-row"><span class="info-label"><i class="fas fa-gamepad"></i> Суть игры</span><span class="info-value">Тактический шутер 5v5, закладка/разминирование бомбы</span></div>
+                <div class="feature-list">
+                    <li><i class="fas fa-chart-simple"></i> За счёт популярности: соревновательность, скины и экономика, простота с глубочайшей механикой, киберспорт [citation:1]</li>
+                    <li><i class="fas fa-trophy"></i> Авторы: Джесс Клифф, Мин Ли (мод Half-Life), позже Valve</li>
+                    <li><i class="fas fa-coins"></i> Доход для Valve: более $6.7 млрд, плюс миллиарды от кейсов и комиссий [citation:4]</li>
+                </div>
+            </div>
+        </div>
+
+        <!-- DOTA 2 -->
+        <div class="game-card">
+            <div class="card-header">
+                <div class="game-icon"><i class="fab fa-dochub" style="color: #6c5ce7;"></i></div>
+                <div class="game-title">DOTA 2</div>
+                <div class="game-sub">Valve Corporation</div>
+            </div>
+            <div class="card-body">
+                <div class="info-row"><span class="info-label"><i class="far fa-calendar-alt"></i> Дата создания</span><span class="info-value">9 июля 2013 (официальный релиз)</span></div>
+                <div class="info-row"><span class="info-label"><i class="fas fa-code-branch"></i> Разработчик</span><span class="info-value">Valve + IceFrog</span></div>
+                <div class="info-row"><span class="info-label"><i class="fas fa-dollar-sign"></i> Бюджет разработки</span><span class="info-value">~30-40 млн $ (оценка)</span></div>
+                <div class="info-row"><span class="info-label"><i class="fas fa-globe"></i> Онлайн (пик в сутки)</span><span class="info-value highlight">~600 000+ (Steam)</span></div>
+                <div class="info-row"><span class="info-label"><i class="fas fa-chart-line"></i> Прибыль (в Steam)</span><span class="info-value profit">~876 млн $ (только Steam) [citation:1][citation:2]</span></div>
+                <div class="divider"></div>
+                <div class="info-row"><span class="info-label"><i class="fas fa-gamepad"></i> Суть игры</span><span class="info-value">MOBA 5v5, битва за древнего, стратегия и командная игра</span></div>
+                <div class="feature-list">
+                    <li><i class="fas fa-chart-simple"></i> За счёт популярности: глубокая стратегия, The International (крупнейшие призовые), бесплатность, комьюнити</li>
+                    <li><i class="fas fa-trophy"></i> Автор: IceFrog (псевдоним) и Valve</li>
+                    <li><i class="fas fa-coins"></i> Доход Valve от Dota 2: более $876 млн в Steam, плюс Compendium — $559 млн только от боевых пропусков [citation:4]</li>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Блок с цифрами: общая прибыль / киберспорт -->
+    <div class="stats-section">
+        <div class="stats-title">
+            <i class="fas fa-chart-pie"></i> 
+            <span>Цифры и феномены индустрии</span>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">$8+ млрд</div>
+                <div class="stat-label">Совокупная прибыль GTA V (все платформы)</div>
+                <div style="font-size:12px; margin-top:8px;">Одна из самых кассовых игр в истории</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$6.7 млрд</div>
+                <div class="stat-label">Доход CS:GO в Steam [citation:1]</div>
+                <div style="font-size:12px; margin-top:8px;">+ кейсы и внутриигровая экономика</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$876 млн</div>
+                <div class="stat-label">Доход DOTA 2 в Steam [citation:2]</div>
+                <div style="font-size:12px; margin-top:8px;">+ The International Compendium</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">533 млн ч</div>
+                <div class="stat-label">Часов просмотра стримов GTA V (Q3 2024) [citation:3]</div>
+                <div style="font-size:12px; margin-top:8px;">Популярнее LoL и Valorant</div>
+            </div>
+        </div>
+        <div style="margin-top: 28px; background: rgba(0,0,0,0.3); border-radius: 1.2rem; padding: 20px;">
+            <p style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; font-size: 0.9rem;">
+                <span><i class="fas fa-check-circle" style="color:#6fcf97;"></i> <strong>Valve</strong> заработала на Steam экосистеме <strong>$8.6 млрд</strong> [citation:1]</span>
+                <span><i class="fas fa-check-circle" style="color:#6fcf97;"></i> <strong>CS2</strong> обновление принесло новый всплеск онлайна</span>
+                <span><i class="fas fa-check-circle" style="color:#6fcf97;"></i> <strong>Dota 2</strong> — самый богатый киберспорт по призовым</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- Блок: В чем секрет популярности? -->
+    <div style="background: linear-gradient(145deg, #10131f, #0b0e17); border-radius: 2rem; padding: 32px; margin: 20px 0 50px; border: 1px solid #2a2f44;">
+        <h2 style="font-size: 1.8rem; margin-bottom: 16px;"><i class="fas fa-fire"></i> За счёт чего они стали культовыми?</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 24px; margin-top: 24px;">
+            <div style="flex:1; min-width: 200px;">
+                <h3 style="color:#f5a623;"><i class="fas fa-car-side"></i> GTA V</h3>
+                <ul style="margin-top: 10px; list-style: none;">
+                    <li>✓ Реалистичный сатиричный мир Лос-Сантоса</li>
+                    <li>✓ Три протагониста, смена персонажей в миссиях</li>
+                    <li>✓ GTA Online — живая экосистема с бизнесами и ограблениями</li>
+                    <li>✓ Ролевые сервера (RP) на ПК приковали миллионы зрителей</li>
+                </ul>
+            </div>
+            <div style="flex:1; min-width: 200px;">
+                <h3 style="color:#ff6b4a;"><i class="fas fa-bullseye"></i> CS2 / CS:GO</h3>
+                <ul style="margin-top: 10px; list-style: none;">
+                    <li>✓ Низкий порог входа + бесконечная глубина механик</li>
+                    <li>✓ Экономика скинов: кейсы, ножи, перчатки — миллиардный рынок</li>
+                    <li>✓ Мажорные турниры (PGL, IEM, BLAST) и легендарные карты</li>
+                    <li>✓ Переход на Source 2 в CS2 улучшил графику и физику дымов</li>
+                </ul>
+            </div>
+            <div style="flex:1; min-width: 200px;">
+                <h3 style="color:#6c5ce7;"><i class="fas fa-chess-board"></i> DOTA 2</h3>
+                <ul style="margin-top: 10px; list-style: none;">
+                    <li>✓ Тактическая вариативность: 120+ героев, тысячи билдов</li>
+                    <li>✓ The International — рекордные призовые (до $40 млн)</li>
+                    <li>✓ Бесплатная модель, весь геймплей открыт с первого часа</li>
+                    <li>✓ Постоянные патчи от IceFrog, которые меняют мету</li>
+                </ul>
+            </div>
+        </div>
+        <div class="divider" style="margin: 28px 0 12px;"></div>
+        <p class="badge" style="display: inline-block;"><i class="fas fa-chart-line"></i> Данные на 2025 год: онлайны обновляются, но GTA V и CS2 удерживают топы просмотров [citation:3]</p>
+    </div>
+
+    <!-- подвал с источниками и пояснением -->
+    <footer>
+        <p><i class="fas fa-database"></i> Источники: аналитика Gamalytic (2023), SteamCharts, отчеты Take-Two, официальные данные Valve. Прибыль указана только для платформы Steam [citation:1][citation:2]. Общие доходы могут быть выше за счет консолей и микротранзакций.</p>
+        <p style="margin-top: 14px;">© 2025 Информационный портал | GTA V, Counter-Strike 2, DOTA 2 — торговые марки Rockstar Games и Valve Corporation.</p>
+    </footer>
+</div>
+</body>
+</html>
